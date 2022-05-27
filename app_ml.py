@@ -76,8 +76,8 @@ def run_ml():
     
 
 
-    price_1 = st.number_input('매입 가격',1, 99999999)
-    price_2 = st.number_input('표준 가격',1, 99999999)
+    price_1 = st.number_input('매입 가격',1, 999999999)
+    price_2 = st.number_input('표준 가격',1, 999999999)
     price_3 = price_1/price_2
     st.text('표준 구매 가격 대비 매입 가격 비율은 {} 입니다.'.format(price_3))
     st.text(' ')
