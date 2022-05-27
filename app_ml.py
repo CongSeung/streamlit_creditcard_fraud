@@ -66,18 +66,19 @@ def run_ml():
 
         
         if result == 0 :
-            st.title('해당 카드 결제는 정상적인 결제입니다.')
+            st.title('이 카드 결제는 정상적인 결제입니다.')
         else :
-            st.title('해당 카드 결제는 신용카드 사기입니다.')
+            st.title('이 카드 결제는 신용카드 사기입니다.')
 
     st.subheader('왼쪽의 알맞은 값을 넣고 버튼을 눌러주세요.')
     st.text('표준 구매 가격 대비 매입 가격 비율은')
-    st.text('(매입 가격 / 표준 구매 가격 대비 *100) 입니다.')
+    st.text('매입 가격 / 표준 구매 가격 대비 입니다.')
+    
 
 
     price_1 = st.number_input('매입 가격',1, 99999999)
     price_2 = st.number_input('표준 가격',1, 99999999)
     price_3 = price_1/price_2
-    st.text('표준 구매 가격 대비 매입 가격 비율은 ')
-    st.text(price_3)
-    st.text('입니다.')
+    st.text('표준 구매 가격 대비 매입 가격 비율은 {} 입니다.'.format(price_3))
+    st.text(' ')
+    st.text('위에서 구한 값을 좌측 메뉴 - 표준 구매 가격 대비 매입 가격 비율에 입력하여 주십시오.')

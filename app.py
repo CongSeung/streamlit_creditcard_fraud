@@ -16,7 +16,7 @@ def main():
 
     menu = ['Home', 'EDA' ,'ML']
 
-    choice = st.sidebar.selectbox('메뉴 선택', menu)
+    choice = st.sidebar.selectbox('메 뉴 선 택', menu)
 
     if choice == menu[0]:
         run_home()
