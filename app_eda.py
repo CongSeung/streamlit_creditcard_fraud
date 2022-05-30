@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt 
 import random
 import seaborn as sns
-from fbprophet import Prophet
 import streamlit as st
 
 ################ 차트 한글 안 깨지게
