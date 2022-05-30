@@ -42,6 +42,8 @@ def run_eda():
 
     select = st.sidebar.selectbox('히스토그램 확인하기', df.columns.to_list())
     
+    print(select)
+
     if st.sidebar.button('히스토그램 확인하기'):
         fig1 = plt.figure() 
         sns.countplot(data = df , x = select)
@@ -51,6 +53,8 @@ def run_eda():
     if st.sidebar.button('상관관계 분석하기'):
         if len(mul_select) >= 3 :
             st.warning('컬럼을 2개만 선택하십시오.')
+        elif len(mul_select) < 2 :
+            st.warning('컬럼 2개를 선택하십시오.')
         else :
             fig2 = plt.figure() 
             sns.scatterplot(data = df, x= mul_select[0], y=mul_select[1])  # 3개 이상 선택해도 맨 앞 두 개만 인식함
