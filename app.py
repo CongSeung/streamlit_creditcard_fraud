@@ -14,7 +14,7 @@ def main():
     
     st.title("Determination of Fraud")
 
-    menu = ['Home', 'EDA' ,'ML']
+    menu = ['Home', 'Data EDA' ,'Determination of Fraud']
 
     choice = st.sidebar.selectbox('메 뉴 선 택', menu)
 

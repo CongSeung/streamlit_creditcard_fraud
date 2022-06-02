@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 import pandas as pd  
 import numpy as np 
 import matplotlib.pyplot as plt 
@@ -8,7 +9,8 @@ import joblib
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import  confusion_matrix, accuracy_score
-
+from geopy.geocoders import Nominatim
+import geopy.distance
 
 def run_ml():
 
@@ -64,21 +66,57 @@ def run_ml():
         new_data = s_scaler.transform(new_data)
         result = classifier.predict(new_data)
 
-        
         if result == 0 :
             st.title('이 카드 결제는 정상적인 결제입니다.')
         else :
             st.title('이 카드 결제는 신용카드 사기입니다.')
 
-    st.subheader('왼쪽 메뉴에 알맞은 값을 넣고 버튼을 눌러주세요.')
-    st.text('표준 구매 가격 대비 매입 가격 비율은')
-    st.text('매입 가격 / 표준 구매 가격 대비 입니다.')
+    st.subheader('카드 결제 건의 사기 여부를 판별할 수 있습니다.')
+    st.subheader('아래 준비된 도구를 이용해 좌측 메뉴에 값을 넣고 확인해보기를 눌러주십시오.')
+
+    with st.container():
+        geo_local = Nominatim(user_agent='South Korea')
+
+        # 위도, 경도 반환하는 함수
+        def geocoding(address):
+            geo = geo_local.geocode(address)
+            x_y = [geo.latitude, geo.longitude]
+            return x_y
+        
+        with st.expander("장소 간 거리를 모를 때는 이 곳을 눌러주십시요."):
+            address1 = st.text_input('첫번째 주소 입력:(예시 : oo시 oo구 oo로oo번길 oo)')
+            address2 = st.text_input('두번째 주소 입력:(예시 : oo시 oo구 oo로oo번길 oo)')
+            b1 = st.button('입력하기',key="1")
+            if b1 :
+                lat_01 = geocoding(address1)[0]
+                lng_01 = geocoding(address1)[1]
+                st.text('첫번째 장소의 위도 : {}, 경도 : {}'.format(lat_01,lng_01))
+            
+                lat_02 = geocoding(address2)[0]
+                lng_02 = geocoding(address2)[1]
+                st.text('두번째 장소의 위도 : {}, 경도 : {}'.format(lat_02,lng_02))
+                    
+                map_data = pd.DataFrame({'latitude':[lat_01, lat_02],'longitude':[lng_01, lng_02]})
+                st.map(data= map_data, zoom = 11)
+
+                coords_1 = (lat_01, lng_01)
+                coords_2 = (lat_02, lng_02)
+
+                st.subheader('두 지점 사이의 거리는 ')
+                st.subheader('{} 입니다.'.format(geopy.distance.geodesic(coords_1, coords_2)))
+    
+    st.text('########################################################')
+
+
+    with st.expander("표준 구매 가격 대비 매입 가격 비율을 계산하려면 이 곳을 눌러주십시요."):
+        st.text('표준 구매 가격 대비 매입 가격 비율은 매입 가격 / 표준 구매 가격 대비 입니다.')
+        st.text('아래에서 구한 값을 좌측 메뉴 - 표준 구매 가격 대비 매입 가격 비율에 입력하여 주십시오.')
+        price_1 = st.number_input('매입 가격',1, 999999999)
+        price_2 = st.number_input('표준 가격',1, 999999999)
+        price_3 = price_1/price_2
+        st.subheader('표준 구매 가격 대비 매입 가격 비율은 <{}> 입니다.'.format(price_3))
     
 
-
-    price_1 = st.number_input('매입 가격',1, 999999999)
-    price_2 = st.number_input('표준 가격',1, 999999999)
-    price_3 = price_1/price_2
-    st.text('표준 구매 가격 대비 매입 가격 비율은 {} 입니다.'.format(price_3))
-    st.text(' ')
-    st.text('위에서 구한 값을 좌측 메뉴 - 표준 구매 가격 대비 매입 가격 비율에 입력하여 주십시오.')
+    
+    
+    
