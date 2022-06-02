@@ -96,7 +96,7 @@ def run_ml():
                 st.text('두번째 장소의 위도 : {}, 경도 : {}'.format(lat_02,lng_02))
                     
                 map_data = pd.DataFrame({'latitude':[lat_01, lat_02],'longitude':[lng_01, lng_02]})
-                st.map(data= map_data, zoom = 7)
+                st.map(data= map_data, zoom = 9)
 
                 coords_1 = (lat_01, lng_01)
                 coords_2 = (lat_02, lng_02)
