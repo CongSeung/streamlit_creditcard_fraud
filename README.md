@@ -1,7 +1,7 @@
-### streamlit_creditcard_fraud
-### 신용카드 결제 사기 확인하기
+# streamlit_creditcard_fraud
+# 신용카드 결제 사기 확인하기
 
-# columns / 컬럼 정보
+## columns / 컬럼 정보
 
 distance_from_home - 홈으로부터 거래가 발생한 곳과의 거리입니다. (단위 : km)
 
@@ -21,12 +21,10 @@ fraud - 거래가 정상이면 0 / 사기건이면 1 입니다.
 
 ![image](https://user-images.githubusercontent.com/105832386/172273027-3e2b553b-0522-4c0f-b3fd-b46cf1570821.png)
 
-# Data EDA
-# 데이터 탐색하기
+## Data EDA / 데이터 탐색하기
 신용카드 사기의 특징에 대해 알아보자.
 
-# Determination of Fraud
-# 사기 여부 판단하기
+## Determination of Fraud / 사기 여부 판단하기
 
 사용 방법
 
