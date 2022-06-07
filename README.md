@@ -1,7 +1,7 @@
 ### streamlit_creditcard_fraud
 ### 신용카드 결제 사기 확인하기
 
-#columns / 컬럼 정보
+# columns / 컬럼 정보
 
 distance_from_home - 홈으로부터 거래가 발생한 곳과의 거리입니다. (단위 : km)
 
@@ -18,6 +18,9 @@ used pinnumber - PIN 번호를 사용하여 거래가 발생했는지 여부를 
 online_order - 거래가 온라인 주문입니다.
 
 fraud - 거래가 정상이면 0 / 사기건이면 1 입니다.
+
+![image](https://user-images.githubusercontent.com/105832386/172272046-9da44da6-225e-43a3-95ee-b3ba237f0eae.png)
+
 
 주요 기능
 
