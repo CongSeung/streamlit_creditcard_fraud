@@ -1,5 +1,4 @@
-# streamlit_creditcard_fraud
-# 신용카드 결제 사기 확인하기
+# streamlit_creditcard_fraud / 신용카드 결제 사기 확인하기
 
 ## columns / 컬럼 정보
 
@@ -43,6 +42,18 @@ fraud - 거래가 정상이면 0 / 사기건이면 1 입니다.
 거래 장소와의 거리 등 사전에 준비되지 않은 정보를 위해 
 거래 장소의 주소를 입력하여 두 장소의 거리를 구하는 기능과
 거래 금액과 표준 금액의 비율을 구하는 기능을 함께 구현하여 놓았다.
+
+거리를 구하기 위해 주소를 
+***
+
+     def geocoding(address):
+            geo = geo_local.geocode(address)
+            x_y = [geo.latitude, geo.longitude]
+            return x_y
+            
+***
+
+
 
   
 
