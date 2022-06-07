@@ -43,15 +43,41 @@ fraud - 거래가 정상이면 0 / 사기건이면 1 입니다.
 거래 장소의 주소를 입력하여 두 장소의 거리를 구하는 기능과
 거래 금액과 표준 금액의 비율을 구하는 기능을 함께 구현하여 놓았다.
 
-거리를 구하기 위해 주소를 
 ***
-
      def geocoding(address):
             geo = geo_local.geocode(address)
             x_y = [geo.latitude, geo.longitude]
             return x_y
             
 ***
+
+거리를 구하기 위해서 
+먼저 주소 데이터를 위도 경도로 반환하는 함수를 만든 후에
+
+***
+     address1 = st.text_input('첫번째 주소 입력:(예시 : oo시 oo구 oo로oo번길 oo)')
+            address2 = st.text_input('두번째 주소 입력:(예시 : oo시 oo구 oo로oo번길 oo)')
+            b1 = st.button('입력하기',key="1")
+            if b1 :
+                lat_01 = geocoding(address1)[0]
+                lng_01 = geocoding(address1)[1]
+                st.text('첫번째 장소의 위도 : {}, 경도 : {}'.format(lat_01,lng_01))
+            
+                lat_02 = geocoding(address2)[0]
+                lng_02 = geocoding(address2)[1]
+                st.text('두번째 장소의 위도 : {}, 경도 : {}'.format(lat_02,lng_02))
+                    
+                map_data = pd.DataFrame({'latitude':[lat_01, lat_02],'longitude':[lng_01, lng_02]})
+                st.map(data= map_data, zoom = 9)
+  
+                coords_1 = (lat_01, lng_01)
+                coords_2 = (lat_02, lng_02)
+
+                st.subheader('두 지점 사이의 거리는 ')
+                st.subheader('{} 입니다.'.format(geopy.distance.geodesic(coords_1, coords_2)))
+
+***
+
 
 
 
