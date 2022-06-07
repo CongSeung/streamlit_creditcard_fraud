@@ -43,25 +43,52 @@ fraud - 거래가 정상이면 0 / 사기건이면 1 입니다.
 
 위 데이터를 좌측 사이드바 메뉴에 형식에 맞게 입력해준다.
 
-거래 장소와의 거리 등 사전에 준비되지 않은 정보를 위해 
+
+
+페이지 메인에는 
+사용자가 입력할 데이터 중 
+거래 장소와의 거리 등 확인하기 어려운 정보에 도움을 주기 위해
 거래 장소의 주소를 입력하여 두 장소의 거리를 구하는 기능과
 거래 금액과 표준 금액의 비율을 구하는 기능을 함께 구현하여 놓았다.
 
 ***
      from geopy.geocoders import Nominatim
+     import geopy.distance
 
      def geocoding(address):
             geo = geo_local.geocode(address)
             x_y = [geo.latitude, geo.longitude]
             return x_y
-            
+     
+     
+     geopy.distance.geodesic()
 ***
 
-거리를 구하기 위해서 
+거리를 구하기 위해서
+geopy 라이브러리를 사용하였고,
 먼저 주소 데이터를 위도 경도로 반환하는 함수를 만든 후에
+두 장소의 주소를 사용자로부터 입력받아 거리를 구할 수 있도록 구성하였다.
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
 
 ***
-     import geopy.distance
+    
      
      with st.expander("장소 간 거리를 모를 때는 이 곳을 눌러주십시요."):
           address1 = st.text_input('첫번째 주소 입력:(예시 : oo시 oo구 oo로oo번길 oo)')
@@ -97,12 +124,3 @@ fraud - 거래가 정상이면 0 / 사기건이면 1 입니다.
      price_2 = st.number_input('표준 가격',1, 999999999)
      price_3 = price_1/price_2
 ***
-
-
-
-  
-
-
-
-
-
