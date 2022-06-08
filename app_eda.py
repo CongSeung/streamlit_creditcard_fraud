@@ -11,7 +11,7 @@ def run_eda():
     
     df = pd.read_csv('data/card_transdata.csv')
     
-    st.subheader('머신러닝 학습에 사용된 데이터셋')
+    st.subheader('머신러닝에 사용된 데이터셋')
     
     # 데이터프레임 확인용 라디오 버튼
     my_order = ['데이터셋 보기', '기본 통계자료 보기']   
