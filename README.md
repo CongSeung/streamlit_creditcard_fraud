@@ -92,7 +92,9 @@ geopy 라이브러리를 사용하였고,
 ![image](https://user-images.githubusercontent.com/105832386/172540713-66a62ad7-895f-4907-a53d-39b967606cae.png)      
  
 데이터를 알맞게 입력한 후에 확인하기 버튼을 누르면 페이지 메인에 정상적인 결제인지, 사기성 결제인지 문구가 출력된다.
-
+-------------------------------------------------
+## Reference
+streamlit에 gif 사용하기 : https://discuss.streamlit.io/t/how-to-show-local-gif-image/3408/4
 
 _________________________________________________
 ## License
