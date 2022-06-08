@@ -14,9 +14,11 @@ import geopy.distance
 
 def run_ml():
 
+    # pkl 파일 load
     s_scaler = joblib.load('data/card_fra_scaler.pkl')
     classifier = joblib.load('data/card_fra_classifier.pkl')
 
+    # user input 
     home_dist = st.sidebar.number_input('거래장소와 집까지의 거리, 단위: km')
     last_dist = st.sidebar.number_input('거래장소와 마지막 거래로부터의 거리, 단위: km')
     medi_purchase = st.sidebar.number_input('표준 구매 가격 대비 매입 가격 비율')
@@ -58,6 +60,7 @@ def run_ml():
     elif status_04 == my_order[1] :
         online_order = 0
 
+    # result / 결과값 도출 
     if st.sidebar.button('확인해보기'):
         new_data = ( home_dist, last_dist, medi_purchase, retailer, used_chip, used_pinnumber, online_order)
 
@@ -74,6 +77,7 @@ def run_ml():
     st.subheader('카드 결제 건의 사기 여부를 판별할 수 있습니다.')
     st.subheader('아래 준비된 도구를 이용해 좌측 메뉴에 값을 넣고 확인해보기를 눌러주십시오.')
 
+    # 두 좌표 간의 거리 구하기
     with st.container():
         geo_local = Nominatim(user_agent='South Korea')
 
@@ -109,7 +113,7 @@ def run_ml():
     
     st.text('########################################################')
 
-
+    # 표준 구매 가격 대비 매입 가격 비율 구하기
     with st.expander("표준 구매 가격 대비 매입 가격 비율을 계산하려면 이 곳을 눌러주십시요."):
         st.text('표준 구매 가격 대비 매입 가격 비율은 매입 가격 / 표준 구매 가격 대비 입니다.')
         st.text('아래에서 구한 값을 좌측 메뉴 - 표준 구매 가격 대비 매입 가격 비율에 입력하여 주십시오.')
