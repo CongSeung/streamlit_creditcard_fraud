@@ -37,10 +37,18 @@ def run_eda():
 
     # 상관관계 확인 : pairplot
     if st.sidebar.checkbox('상관관계 확인하기'):
+        img = Image.open('data/corr.png')
+
+        st.image(img,use_column_width=True)    
+
+    # 상관관계 확인 : pairplot
+    if st.sidebar.checkbox('상관관계 차트로 확인하기'):
         img = Image.open('data/pairplot.png')
 
         st.image(img,use_column_width=True)
     
+
+
     fraud_col = ['repeat_retailer', 'used_pin_number', 'used_chip', 'online_order']
 
     choice = st.sidebar.selectbox('fraud와 주요컬럼의 데이터 확인',fraud_col)
