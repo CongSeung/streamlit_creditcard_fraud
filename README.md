@@ -5,7 +5,11 @@ Streamlit을 이용해 구성한 웹 대시보드입니다.
 
 Dataset : https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud    
 Deployment : http://15.164.213.131:8501/
+## library
 
+***
+     pip install geopy
+***
 
 ## columns / 컬럼 정보
 
