@@ -87,8 +87,9 @@ geopy 라이브러리를 사용하였고,
 
 
 _________________________________________________
+## License
 
-## Geopy
+### Geopy
 https://github.com/geopy/geopy
 Copyright (c) 2006-2018 geopy authors (see AUTHORS)
 
