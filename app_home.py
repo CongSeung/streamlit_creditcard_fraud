@@ -16,8 +16,7 @@ def run_home():
     url = 'https://www.fss.or.kr/'
 
     st.text('금융민원관련 상담전화, 국번없이 1332')
-    if st.button('금융감독원 바로가기'):
-        webbrowser.open_new_tab(url)
+    st.write("금융감독원 바로가기 [link](https://www.fss.or.kr)")
 
     ### gif 파일 넣기
     """### gif from local file"""
