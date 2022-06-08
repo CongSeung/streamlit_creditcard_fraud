@@ -10,6 +10,10 @@ Deployment : http://15.164.213.131:8501/
 ***
      pip install geopy
 ***
+## ML
+KNeighborsClassifier(n_neighbors= 3) / test size = 0.2    
+
+![image](https://user-images.githubusercontent.com/105832386/172570639-cd72f9eb-5c5c-4069-b8f4-ef20fc0e1507.png)
 
 ## columns / 컬럼 정보
 
