@@ -3,7 +3,7 @@
 신용카드 사기 여부를 판단하기 위해 
 Streamlit을 이용해 구성한 웹 대시보드입니다.
 
-Dataset : https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud
+Dataset : https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud    
 Deployment : http://15.164.213.131:8501/
 
 
