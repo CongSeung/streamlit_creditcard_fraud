@@ -6,6 +6,8 @@ import random
 import seaborn as sns
 import streamlit as st
 import base64
+import webbrowser
+
 
 from app_ml import run_ml
 
@@ -13,6 +15,12 @@ def run_home():
     st.subheader('신용카드 거래 사기 여부 판단해드립니다.')
     st.text('좌측 메뉴를 통해 데이터를 탐색해보고, 카드 결제건에 대해 사기 여부를 알 수 있습니다.')
     st.text(' ')
+
+    url = 'https://www.fss.or.kr/'
+
+    st.text('금융민원관련 상담전화, 국번없이 1332')
+    if st.button('금융감독원 바로가기'):
+        webbrowser.open_new_tab(url)
 
     #### 이미지 배경으로 만들기
     # @st.cache(allow_output_mutation=True)
