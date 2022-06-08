@@ -41,6 +41,23 @@ def run_eda():
 
         st.image(img,use_column_width=True)
     
+    fraud_col = ['repeat_retailer', 'used_pin_number', 'used_chip', 'online_order']
+
+    choice = st.sidebar.selectbox('fraud와 주요컬럼의 데이터 확인',fraud_col)
+
+    if st.sidebar.button('확인하기'):
+        if choice == fraud_col[0]:
+            img = Image.open('data/re_fr.png')
+            st.image(img,use_column_width=True)
+        elif choice == fraud_col[1]:
+            img = Image.open('data/pin_fr.png')
+            st.image(img,use_column_width=True)
+        elif choice == fraud_col[2]:
+            img = Image.open('data/us_fr.png')
+            st.image(img,use_column_width=True)
+        elif choice == fraud_col[3]:
+            img = Image.open('data/or_fr.png')
+            st.image(img,use_column_width=True)
 
     #### 원래 함수 ec2 에서 돌리기 너무 무거워 죽여놓음
     # select = st.sidebar.selectbox('히스토그램 확인하기', df.columns.to_list())
