@@ -4,7 +4,8 @@
 Streamlit을 이용해 구성한 웹 대시보드입니다.
 
 Dataset : https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud    
-Deployment : http://15.164.213.131:8501/
+Deployment : http://ec2-15-164-213-131.ap-northeast-2.compute.amazonaws.com:8501/
+
 ## library
 
 ***
