@@ -68,7 +68,8 @@ def run_eda():
             st.image(img,use_column_width=True)
 
     with st.expander('결론은?'):
-        st.text('ratio_to_median_purchase_price/표준 구매 가격 대비 매입 가격 거래 비율이 사기건과의 관계성이 제일 높게나오지만')
+        st.text('ratio_to_median_purchase_price/표준 구매 가격 대비 매입 가격 거래 비율이')
+        st.text('결제 사기건과의 관계성이 제일 높게나오지만')
         st.text('다른 요소들의 사소하지만 복합적인 이유들이 쌓여 결과가 변하는 경우가 많다는 것을 알수 있다. ')
 
     #### 원래 함수 ec2 에서 돌리기 너무 무거워 죽여놓음
